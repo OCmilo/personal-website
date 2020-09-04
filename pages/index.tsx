@@ -1,9 +1,33 @@
 import { FaTwitter, FaGithub, FaEnvelope, FaLinkedin } from 'react-icons/fa'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import DocumentHead from '../containers/DocumentHead'
 import Theme from '../contexts/Theme'
 import theme from '../config/theme'
 import general from '../config/general'
+
+const translateFromLeft = keyframes`
+  from {
+    transform: translateX(-20vw);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`
+
+const translateFromRight = keyframes`
+  from {
+    transform: translateX(20vw);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`
 
 const Alert = styled.article`
   width: 100vw;
@@ -15,17 +39,10 @@ const Alert = styled.article`
   align-content: center;
   align-items: center;
 
-  h1 {
-    font-size: 5rem;
-  }
-
   @media only screen and (max-width: 50em) {
     grid-template-columns: none;
     justify-items: center;
     row-gap: 2rem;
-  }
-
-  @media only screen and (max-width: 31.25em) {
   }
 `
 
@@ -35,10 +52,13 @@ const AlertContent = styled.section`
   justify-items: center;
   column-gap: 3rem;
   row-gap: 2rem;
+  position: relative;
+  animation: ${translateFromRight} 1.5s cubic-bezier(0.26, 0.18, 0.23, 1.23);
 
   h1 {
     grid-column: 1 / -1;
     margin: 0;
+    font-size: 5rem;
   }
 
   a {
@@ -77,6 +97,7 @@ const BackVideo = styled.video`
 
 const Logo = styled.img`
   width: 20rem;
+  animation: ${translateFromLeft} 1.5s cubic-bezier(0.26, 0.18, 0.23, 1.23);
 `
 
 const iconSize = '3rem'
@@ -86,7 +107,7 @@ const IndexPage: React.FC = () => (
     <DocumentHead />
     <VideoContainer>
       <BackVideo autoPlay muted loop>
-        {/* <source src="back.mp4" type="video/mp4" /> */}
+        <source src="back.mp4" type="video/mp4" />
         <source src="back.webm" type="video/webm" />
       </BackVideo>
     </VideoContainer>
