@@ -1,12 +1,69 @@
-import { FcHighPriority } from 'react-icons/fc'
+import { FcLock } from 'react-icons/fc'
+import { FaTwitter, FaGithub } from 'react-icons/fa'
+import styled from 'styled-components'
 import DocumentHead from '../containers/DocumentHead'
 import Theme from '../contexts/Theme'
+import theme from '../config/theme'
+
+const Alert = styled.article`
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: max-content max-content;
+  column-gap: 5rem;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 50px;
+  }
+`
+
+const AlertContent = styled.section`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  column-gap: 3rem;
+  row-gap: 2rem;
+
+  h1 {
+    grid-column: 1 / -1;
+    margin: 0;
+  }
+
+  a {
+    transition: all 0.2s;
+
+    &:hover {
+      transform: translateY(-3px) scale(1.05);
+    }
+  }
+
+  a:first-of-type {
+    justify-self: end;
+  }
+
+  a:last-of-type {
+    justify-self: start;
+  }
+`
 
 const IndexPage: React.FC = () => (
   <Theme>
     <DocumentHead />
-    <h1>Hello World!</h1>
-    <FcHighPriority size="500px" />
+    <Alert>
+      <FcLock size="200px" />
+      <AlertContent>
+        <h1>Site in maintenance</h1>
+        <a href="https://twitter.com/OCmilo">
+          <FaTwitter size="35px" color={theme.colors.primaryColor} />
+        </a>
+        <a href="https://github.com/OCmilo">
+          <FaGithub size="35px" color={theme.colors.primaryColor} />
+        </a>
+      </AlertContent>
+    </Alert>
   </Theme>
 )
 
