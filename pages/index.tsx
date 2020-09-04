@@ -1,4 +1,3 @@
-import { FcLock } from 'react-icons/fc'
 import { FaTwitter, FaGithub, FaEnvelope, FaLinkedin } from 'react-icons/fa'
 import styled from 'styled-components'
 import DocumentHead from '../containers/DocumentHead'
