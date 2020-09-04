@@ -1,5 +1,5 @@
 import { FcLock } from 'react-icons/fc'
-import { FaTwitter, FaGithub, FaEnvelope } from 'react-icons/fa'
+import { FaTwitter, FaGithub, FaEnvelope, FaLinkedin } from 'react-icons/fa'
 import styled from 'styled-components'
 import DocumentHead from '../containers/DocumentHead'
 import Theme from '../contexts/Theme'
@@ -32,7 +32,7 @@ const Alert = styled.article`
 
 const AlertContent = styled.section`
   display: grid;
-  grid-template-columns: 1fr max-content 1fr;
+  grid-template-columns: 1fr max-content max-content 1fr;
   justify-items: center;
   column-gap: 3rem;
   row-gap: 2rem;
@@ -76,6 +76,8 @@ const BackVideo = styled.video`
   filter: blur(4px) grayscale(0.7);
 `
 
+const iconSize = '3rem'
+
 const IndexPage: React.FC = () => (
   <Theme>
     <DocumentHead />
@@ -89,14 +91,17 @@ const IndexPage: React.FC = () => (
       <FcLock size="20rem" />
       <AlertContent>
         <h1>Site in maintenance</h1>
-        <a href="https://twitter.com/OCmilo">
-          <FaTwitter size="3.5rem" color={theme.colors.primaryColor} />
+        <a href={general.twitter} target="_blank" rel="noopener noreferrer">
+          <FaTwitter size={iconSize} color={theme.colors.primaryColor} />
         </a>
         <a href={`mailto:${general.email}`}>
-          <FaEnvelope size="3.5rem" color={theme.colors.primaryColor} />
+          <FaEnvelope size={iconSize} color={theme.colors.primaryColor} />
         </a>
-        <a href="https://github.com/OCmilo">
-          <FaGithub size="3.5rem" color={theme.colors.primaryColor} />
+        <a href={general.linkedin} target="_blank" rel="noopener noreferrer">
+          <FaLinkedin size={iconSize} color={theme.colors.primaryColor} />
+        </a>
+        <a href={general.github} target="_blank" rel="noopener noreferrer">
+          <FaGithub size={iconSize} color={theme.colors.primaryColor} />
         </a>
       </AlertContent>
     </Alert>
