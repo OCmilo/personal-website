@@ -1,5 +1,5 @@
 const general = {
-  siteTitle: 'Camilo',
+  siteTitle: 'Camilo Carneiro',
   siteDescription: "Camilo's Personal website, blog and portfolio",
 }
 

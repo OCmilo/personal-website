@@ -49,9 +49,31 @@ const AlertContent = styled.section`
   }
 `
 
+const VideoContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.15;
+`
+
+const BackVideo = styled.video`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(4px) grayscale(0.7);
+`
+
 const IndexPage: React.FC = () => (
   <Theme>
     <DocumentHead />
+    <VideoContainer>
+      <BackVideo autoPlay muted loop>
+        <source src="back.mp4" type="video/mp4" />
+      </BackVideo>
+    </VideoContainer>
     <Alert>
       <FcLock size="200px" />
       <AlertContent>

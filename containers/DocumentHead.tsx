@@ -7,7 +7,7 @@ interface DocumentHeadProps {
 
 const DocumentHead: React.FC<DocumentHeadProps> = ({ subtitle = '' }) => (
   <Head>
-    <title>{`${general.siteTitle} / ${subtitle}`}</title>
+    <title>{`${general.siteTitle} ${subtitle && '/'} ${subtitle}`}</title>
     <meta charSet="utf-8" />
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <meta name="description" content={general.siteDescription} />
