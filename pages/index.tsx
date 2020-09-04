@@ -93,18 +93,18 @@ const IndexPage: React.FC = () => (
     <Alert>
       <Logo src="logo.svg" alt="logo" />
       <AlertContent>
-        <h1>Site in maintenance</h1>
+        <h1>Under Construction</h1>
         <a href={general.twitter} target="_blank" rel="noopener noreferrer">
-          <FaTwitter size={iconSize} color={theme.colors.tertiaryColor} />
+          <FaTwitter size={iconSize} color={theme.colors.secondaryColor} />
         </a>
         <a href={`mailto:${general.email}`}>
-          <FaEnvelope size={iconSize} color={theme.colors.tertiaryColor} />
+          <FaEnvelope size={iconSize} color={theme.colors.secondaryColor} />
         </a>
         <a href={general.linkedin} target="_blank" rel="noopener noreferrer">
-          <FaLinkedin size={iconSize} color={theme.colors.tertiaryColor} />
+          <FaLinkedin size={iconSize} color={theme.colors.secondaryColor} />
         </a>
         <a href={general.github} target="_blank" rel="noopener noreferrer">
-          <FaGithub size={iconSize} color={theme.colors.tertiaryColor} />
+          <FaGithub size={iconSize} color={theme.colors.secondaryColor} />
         </a>
       </AlertContent>
     </Alert>
