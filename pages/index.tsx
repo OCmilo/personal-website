@@ -72,6 +72,7 @@ const IndexPage: React.FC = () => (
     <VideoContainer>
       <BackVideo autoPlay muted loop>
         <source src="back.mp4" type="video/mp4" />
+        <source src="back.webm" type="video/webm" />
       </BackVideo>
     </VideoContainer>
     <Alert>
