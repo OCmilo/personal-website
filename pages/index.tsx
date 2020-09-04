@@ -9,14 +9,23 @@ const Alert = styled.article`
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-columns: max-content max-content;
-  column-gap: 5rem;
+  grid-template-columns: repeat(2, max-content);
+  column-gap: 4rem;
   justify-content: center;
   align-content: center;
   align-items: center;
 
   h1 {
-    font-size: 50px;
+    font-size: 5rem;
+  }
+
+  @media only screen and (max-width: 50em) {
+    grid-template-columns: none;
+    justify-items: center;
+    row-gap: 2rem;
+  }
+
+  @media only screen and (max-width: 31.25em) {
   }
 `
 
@@ -76,14 +85,14 @@ const IndexPage: React.FC = () => (
       </BackVideo>
     </VideoContainer>
     <Alert>
-      <FcLock size="200px" />
+      <FcLock size="20rem" />
       <AlertContent>
         <h1>Site in maintenance</h1>
         <a href="https://twitter.com/OCmilo">
-          <FaTwitter size="35px" color={theme.colors.primaryColor} />
+          <FaTwitter size="3.5rem" color={theme.colors.primaryColor} />
         </a>
         <a href="https://github.com/OCmilo">
-          <FaGithub size="35px" color={theme.colors.primaryColor} />
+          <FaGithub size="3.5rem" color={theme.colors.primaryColor} />
         </a>
       </AlertContent>
     </Alert>
