@@ -1,9 +1,10 @@
 import { FcLock } from 'react-icons/fc'
-import { FaTwitter, FaGithub } from 'react-icons/fa'
+import { FaTwitter, FaGithub, FaEnvelope } from 'react-icons/fa'
 import styled from 'styled-components'
 import DocumentHead from '../containers/DocumentHead'
 import Theme from '../contexts/Theme'
 import theme from '../config/theme'
+import general from '../config/general'
 
 const Alert = styled.article`
   width: 100vw;
@@ -31,7 +32,7 @@ const Alert = styled.article`
 
 const AlertContent = styled.section`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr max-content 1fr;
   justify-items: center;
   column-gap: 3rem;
   row-gap: 2rem;
@@ -90,6 +91,9 @@ const IndexPage: React.FC = () => (
         <h1>Site in maintenance</h1>
         <a href="https://twitter.com/OCmilo">
           <FaTwitter size="3.5rem" color={theme.colors.primaryColor} />
+        </a>
+        <a href={`mailto:${general.email}`}>
+          <FaEnvelope size="3.5rem" color={theme.colors.primaryColor} />
         </a>
         <a href="https://github.com/OCmilo">
           <FaGithub size="3.5rem" color={theme.colors.primaryColor} />
