@@ -76,6 +76,10 @@ const BackVideo = styled.video`
   filter: blur(4px) grayscale(0.7);
 `
 
+const Logo = styled.img`
+  width: 20rem;
+`
+
 const iconSize = '3rem'
 
 const IndexPage: React.FC = () => (
@@ -88,20 +92,20 @@ const IndexPage: React.FC = () => (
       </BackVideo>
     </VideoContainer>
     <Alert>
-      <FcLock size="20rem" />
+      <Logo src="logo.svg" alt="logo" />
       <AlertContent>
         <h1>Site in maintenance</h1>
         <a href={general.twitter} target="_blank" rel="noopener noreferrer">
-          <FaTwitter size={iconSize} color={theme.colors.primaryColor} />
+          <FaTwitter size={iconSize} color={theme.colors.tertiaryColor} />
         </a>
         <a href={`mailto:${general.email}`}>
-          <FaEnvelope size={iconSize} color={theme.colors.primaryColor} />
+          <FaEnvelope size={iconSize} color={theme.colors.tertiaryColor} />
         </a>
         <a href={general.linkedin} target="_blank" rel="noopener noreferrer">
-          <FaLinkedin size={iconSize} color={theme.colors.primaryColor} />
+          <FaLinkedin size={iconSize} color={theme.colors.tertiaryColor} />
         </a>
         <a href={general.github} target="_blank" rel="noopener noreferrer">
-          <FaGithub size={iconSize} color={theme.colors.primaryColor} />
+          <FaGithub size={iconSize} color={theme.colors.tertiaryColor} />
         </a>
       </AlertContent>
     </Alert>
