@@ -54,6 +54,8 @@ const AlertContent = styled.section`
   row-gap: 2rem;
   position: relative;
   animation: ${translateFromRight} 1.5s cubic-bezier(0.26, 0.18, 0.23, 1.23);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 
   h1 {
     grid-column: 1 / -1;
@@ -98,6 +100,8 @@ const BackVideo = styled.video`
 const Logo = styled.img`
   width: 20rem;
   animation: ${translateFromLeft} 1.5s cubic-bezier(0.26, 0.18, 0.23, 1.23);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 `
 
 const iconSize = '3rem'
