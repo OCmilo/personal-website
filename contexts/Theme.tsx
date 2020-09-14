@@ -1,10 +1,8 @@
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
-import { normalize } from 'styled-normalize'
+import { Normalize } from 'styled-normalize'
 import theme from '../config/theme'
 
 const GlobalStyle = createGlobalStyle`
-  ${normalize}
-
   html {
     font-size: 62.5%;
 
@@ -30,6 +28,7 @@ const GlobalStyle = createGlobalStyle`
 
 const Theme: React.FC = ({ children }) => (
   <ThemeProvider theme={theme}>
+    <Normalize />
     <GlobalStyle />
     {children}
   </ThemeProvider>

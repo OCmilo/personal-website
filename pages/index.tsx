@@ -5,6 +5,8 @@ import Theme from '../contexts/Theme'
 import theme from '../config/theme'
 import general from '../config/general'
 
+const iconSize = '3rem'
+
 const translateFromLeft = keyframes`
   from {
     transform: translateX(-20vw);
@@ -103,8 +105,6 @@ const Logo = styled.img`
   will-change: transform, opacity;
   backface-visibility: hidden;
 `
-
-const iconSize = '3rem'
 
 const IndexPage: React.FC = () => (
   <Theme>
