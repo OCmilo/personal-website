@@ -42,6 +42,7 @@ const AlertContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 0;
 `
 
 const Alert = styled.article`
@@ -123,6 +124,8 @@ const LocaleDiv = styled.div`
   display: flex;
   justify-content: flex-end;
   padding: 2rem;
+  z-index: 2;
+  position: relative;
 `
 
 const LocaleLink = styled.a<{ isDefaultLocale: boolean }>`
