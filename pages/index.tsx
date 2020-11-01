@@ -150,53 +150,69 @@ const IndexPage: React.FC = () => {
   return (
     <Theme>
       <DocumentHead />
-      <VideoContainer>
-        <BackVideo autoPlay muted loop>
-          <source src="back.mp4" type="video/mp4" />
-          <source src="back.webm" type="video/webm" />
-        </BackVideo>
-      </VideoContainer>
-      <LocaleDiv>
-        <Link href="/" locale="en" passHref>
-          <LocaleLink isDefaultLocale={locale === 'en'}>En</LocaleLink>
-        </Link>
-        <span>/</span>
-        <Link href="/" locale="pt" passHref>
-          <LocaleLink isDefaultLocale={locale === 'pt'}>Pt</LocaleLink>
-        </Link>
-      </LocaleDiv>
-      <AlertContainer>
-        <Alert>
-          <Logo src="logo.svg" alt="logo" />
-          <AlertContent>
-            <h1>{locale === 'en' ? ' Under Construction' : 'Em construção'}</h1>
-            <a
-              href={siteMetadata.twitter}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaTwitter size={iconSize} color={theme.colors.secondaryColor} />
-            </a>
-            <a href={`mailto:${siteMetadata.email}`}>
-              <FaEnvelope size={iconSize} color={theme.colors.secondaryColor} />
-            </a>
-            <a
-              href={siteMetadata.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaLinkedin size={iconSize} color={theme.colors.secondaryColor} />
-            </a>
-            <a
-              href={siteMetadata.github}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaGithub size={iconSize} color={theme.colors.secondaryColor} />
-            </a>
-          </AlertContent>
-        </Alert>
-      </AlertContainer>
+      <main>
+        <VideoContainer>
+          <BackVideo autoPlay muted loop>
+            <source src="back.mp4" type="video/mp4" />
+            <source src="back.webm" type="video/webm" />
+          </BackVideo>
+        </VideoContainer>
+        <LocaleDiv>
+          <Link href="/" locale="en" passHref>
+            <LocaleLink isDefaultLocale={locale === 'en'}>En</LocaleLink>
+          </Link>
+          <span>/</span>
+          <Link href="/" locale="pt" passHref>
+            <LocaleLink isDefaultLocale={locale === 'pt'}>Pt</LocaleLink>
+          </Link>
+        </LocaleDiv>
+        <AlertContainer>
+          <Alert>
+            <Logo src="logo.svg" alt="logo" />
+            <AlertContent>
+              <h1>
+                {locale === 'en' ? ' Under Construction' : 'Em construção'}
+              </h1>
+              <a
+                href={siteMetadata.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter"
+              >
+                <FaTwitter
+                  size={iconSize}
+                  color={theme.colors.secondaryColor}
+                />
+              </a>
+              <a aria-label="E-Mail" href={`mailto:${siteMetadata.email}`}>
+                <FaEnvelope
+                  size={iconSize}
+                  color={theme.colors.secondaryColor}
+                />
+              </a>
+              <a
+                href={siteMetadata.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedin
+                  size={iconSize}
+                  color={theme.colors.secondaryColor}
+                />
+              </a>
+              <a
+                href={siteMetadata.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <FaGithub size={iconSize} color={theme.colors.secondaryColor} />
+              </a>
+            </AlertContent>
+          </Alert>
+        </AlertContainer>
+      </main>
     </Theme>
   )
 }
