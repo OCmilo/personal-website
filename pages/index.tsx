@@ -1,9 +1,11 @@
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 import { FaTwitter, FaGithub, FaEnvelope, FaLinkedin } from 'react-icons/fa'
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes, css } from 'styled-components'
 import DocumentHead from '../containers/DocumentHead'
 import Theme from '../contexts/Theme'
 import theme from '../config/theme'
-import general from '../config/general'
+import siteMetadata from '../config/siteMetadata'
 
 const iconSize = '3rem'
 
@@ -31,9 +33,20 @@ const translateFromRight = keyframes`
   }
 `
 
+const AlertContainer = styled.div`
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 const Alert = styled.article`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: grid;
   grid-template-columns: repeat(2, max-content);
   column-gap: 4rem;
@@ -106,34 +119,83 @@ const Logo = styled.img`
   backface-visibility: hidden;
 `
 
-const IndexPage: React.FC = () => (
-  <Theme>
-    <DocumentHead />
-    <VideoContainer>
-      <BackVideo autoPlay muted loop>
-        <source src="back.mp4" type="video/mp4" />
-        <source src="back.webm" type="video/webm" />
-      </BackVideo>
-    </VideoContainer>
-    <Alert>
-      <Logo src="logo.svg" alt="logo" />
-      <AlertContent>
-        <h1>Under Construction</h1>
-        <a href={general.twitter} target="_blank" rel="noopener noreferrer">
-          <FaTwitter size={iconSize} color={theme.colors.secondaryColor} />
-        </a>
-        <a href={`mailto:${general.email}`}>
-          <FaEnvelope size={iconSize} color={theme.colors.secondaryColor} />
-        </a>
-        <a href={general.linkedin} target="_blank" rel="noopener noreferrer">
-          <FaLinkedin size={iconSize} color={theme.colors.secondaryColor} />
-        </a>
-        <a href={general.github} target="_blank" rel="noopener noreferrer">
-          <FaGithub size={iconSize} color={theme.colors.secondaryColor} />
-        </a>
-      </AlertContent>
-    </Alert>
-  </Theme>
-)
+const LocaleDiv = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  padding: 2rem;
+`
+
+const LocaleLink = styled.a<{ isDefaultLocale: boolean }>`
+  &:link,
+  &:visited {
+    color: ${theme.colors.white};
+    font-size: ${theme.fontSizes.xl};
+    text-decoration: none;
+    padding: 0 0.5rem;
+
+    ${({ isDefaultLocale }) =>
+      isDefaultLocale &&
+      css`
+        font-weight: bold;
+      `}
+  }
+`
+
+const IndexPage: React.FC = () => {
+  const { locale } = useRouter()
+
+  return (
+    <Theme>
+      <DocumentHead />
+      <VideoContainer>
+        <BackVideo autoPlay muted loop>
+          <source src="back.mp4" type="video/mp4" />
+          <source src="back.webm" type="video/webm" />
+        </BackVideo>
+      </VideoContainer>
+      <LocaleDiv>
+        <Link href="/" locale="en" passHref>
+          <LocaleLink isDefaultLocale={locale === 'en'}>En</LocaleLink>
+        </Link>
+        <span>/</span>
+        <Link href="/" locale="pt" passHref>
+          <LocaleLink isDefaultLocale={locale === 'pt'}>Pt</LocaleLink>
+        </Link>
+      </LocaleDiv>
+      <AlertContainer>
+        <Alert>
+          <Logo src="logo.svg" alt="logo" />
+          <AlertContent>
+            <h1>{locale === 'en' ? ' Under Construction' : 'Em construção'}</h1>
+            <a
+              href={siteMetadata.twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaTwitter size={iconSize} color={theme.colors.secondaryColor} />
+            </a>
+            <a href={`mailto:${siteMetadata.email}`}>
+              <FaEnvelope size={iconSize} color={theme.colors.secondaryColor} />
+            </a>
+            <a
+              href={siteMetadata.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin size={iconSize} color={theme.colors.secondaryColor} />
+            </a>
+            <a
+              href={siteMetadata.github}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub size={iconSize} color={theme.colors.secondaryColor} />
+            </a>
+          </AlertContent>
+        </Alert>
+      </AlertContainer>
+    </Theme>
+  )
+}
 
 export { IndexPage as default }

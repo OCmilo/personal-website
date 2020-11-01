@@ -5,6 +5,7 @@ import theme from '../config/theme'
 const GlobalStyle = createGlobalStyle`
   html {
     font-size: 62.5%;
+    height: 100%;
 
     @media only screen and (max-width: 50em) {
       font-size: 50%
@@ -18,7 +19,13 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: ${theme.fonts.text};
     background-color: ${theme.colors.black};
-    color: ${theme.colors.white}
+    color: ${theme.colors.white};
+    box-sizing: border-box;
+    height: 100%;
+  }
+  
+  #__next {
+    height: 100%;
   }
 
   ::selection {

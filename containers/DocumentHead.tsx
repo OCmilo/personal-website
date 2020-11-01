@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import general from '../config/general'
+import siteMetadata from '../config/siteMetadata'
 
 interface DocumentHeadProps {
   subtitle?: string
@@ -7,17 +7,17 @@ interface DocumentHeadProps {
 
 const DocumentHead: React.FC<DocumentHeadProps> = ({ subtitle = '' }) => (
   <Head>
-    <title>{`${general.siteTitle} ${subtitle && '/'} ${subtitle}`}</title>
+    <title>{`${siteMetadata.siteTitle} ${subtitle && '/'} ${subtitle}`}</title>
     <meta charSet="utf-8" />
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    <meta name="description" content={general.siteDescription} />
+    <meta name="description" content={siteMetadata.siteDescription} />
     <meta name="robots" content="index, follow" />
     <meta
       property="og:title"
-      content={`${general.siteTitle} ${subtitle && '/'} ${subtitle}`}
+      content={`${siteMetadata.siteTitle} ${subtitle && '/'} ${subtitle}`}
     />
     <meta property="og:site_name" content="Camilo Carneiro" />
-    <meta property="og:description" content={general.siteDescription} />
+    <meta property="og:description" content={siteMetadata.siteDescription} />
     <meta property="og:image" content="https://cami.dev/ogimage.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
