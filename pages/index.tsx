@@ -115,7 +115,8 @@ const BackVideo = styled.video`
 `
 
 const Logo = styled(Image)`
-  width: 20rem;
+  max-width: 100%;
+  display: block;
   animation: ${translateFromLeft} 1.5s cubic-bezier(0.26, 0.18, 0.23, 1.23);
   will-change: transform, opacity;
   backface-visibility: hidden;
@@ -169,7 +170,15 @@ const IndexPage: React.FC = () => {
         </LocaleDiv>
         <AlertContainer>
           <Alert>
-            <Logo src="/logo.svg" alt="Website Logo" unsized quality={100} />
+            <div style={{ width: '20rem' }}>
+              <Logo
+                src="/logo.svg"
+                alt="Website Logo"
+                width={516}
+                height={516}
+                quality={100}
+              />
+            </div>
             <AlertContent>
               <h1>
                 {locale === 'en' ? ' Under Construction' : 'Em construção'}
