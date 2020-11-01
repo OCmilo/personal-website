@@ -3,4 +3,7 @@ module.exports = {
     locales: ['en', 'pt'],
     defaultLocale: 'en',
   },
+  images: {
+    deviceSizes: [312, 500, 800],
+  },
 }

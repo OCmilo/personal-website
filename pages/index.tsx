@@ -1,5 +1,6 @@
-import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+import Image from 'next/image'
 import { FaTwitter, FaGithub, FaEnvelope, FaLinkedin } from 'react-icons/fa'
 import styled, { keyframes, css } from 'styled-components'
 import DocumentHead from '../containers/DocumentHead'
@@ -113,7 +114,7 @@ const BackVideo = styled.video`
   filter: blur(4px) grayscale(0.7);
 `
 
-const Logo = styled.img`
+const Logo = styled(Image)`
   width: 20rem;
   animation: ${translateFromLeft} 1.5s cubic-bezier(0.26, 0.18, 0.23, 1.23);
   will-change: transform, opacity;
@@ -132,7 +133,7 @@ const LocaleLink = styled.a<{ isDefaultLocale: boolean }>`
   &:link,
   &:visited {
     color: ${theme.colors.white};
-    font-size: ${theme.fontSizes.xl};
+    font-size: 12px;
     text-decoration: none;
     padding: 0 0.5rem;
 
@@ -161,14 +162,14 @@ const IndexPage: React.FC = () => {
           <Link href="/" locale="en" passHref>
             <LocaleLink isDefaultLocale={locale === 'en'}>En</LocaleLink>
           </Link>
-          <span>/</span>
+          <span style={{ fontSize: '12px' }}>/</span>
           <Link href="/" locale="pt" passHref>
             <LocaleLink isDefaultLocale={locale === 'pt'}>Pt</LocaleLink>
           </Link>
         </LocaleDiv>
         <AlertContainer>
           <Alert>
-            <Logo src="logo.svg" alt="logo" />
+            <Logo src="/logo.svg" alt="Website Logo" unsized quality={100} />
             <AlertContent>
               <h1>
                 {locale === 'en' ? ' Under Construction' : 'Em construção'}
