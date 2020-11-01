@@ -177,6 +177,7 @@ const IndexPage: React.FC = () => {
                 width={516}
                 height={516}
                 quality={100}
+                loading="eager"
               />
             </div>
             <AlertContent>
